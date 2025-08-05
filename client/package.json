@@ -42,5 +42,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://blogify-cduv.onrender.com/api"
+  "proxy": "https://blogify-cduv.onrender.com/api/",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
