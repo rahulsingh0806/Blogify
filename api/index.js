@@ -8,12 +8,14 @@ const postRoute = require("./routes/posts");
 const accessRoute = require('./routes/accessRoute')
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
+const cors = require('cors');
 const path = require("path");
 require('dotenv').config();
 
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
+app.use(cors());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose
