@@ -14,7 +14,13 @@ require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://blogify-frontend-yg94.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose
