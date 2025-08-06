@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -48,10 +47,9 @@ app.use("/api/posts", postRoute);
 app.use("/api/access",accessRoute);
 app.use("/api/categories", categoryRoute);
 
-app.get('/', (req, res)=> {
+app.get('/api/', (req, res)=> {
   res.get(`<h1> This is the backend of the blogify web app</h1>`);
 })
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Backend is running on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log("Backend is running.");
 });
-
