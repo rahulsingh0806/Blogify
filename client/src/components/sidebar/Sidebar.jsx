@@ -56,7 +56,7 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
-  const baseURL = process.env.REACT_APP_BASE_URL;
+  const baseURL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const getCats = async () => {
