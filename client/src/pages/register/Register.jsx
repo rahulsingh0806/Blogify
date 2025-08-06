@@ -98,7 +98,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link , useHistory } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
@@ -109,7 +109,7 @@ export default function Register() {
   const [error, setError] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const baseURL = process.env.REACT_APP_BASE_URL;
-  const navigate = useNavigate();
+  const history = useHistory();
 
 
   const handleOtp = async (e) => {
@@ -145,8 +145,8 @@ export default function Register() {
         otp,
       });
       if (res.data) {
-      navigate("/auth/login");
-    }
+        history.push("/login");
+      }
     } catch (err) {
       setError(true);
     }
@@ -202,11 +202,9 @@ export default function Register() {
           Register
         </button>
       </form>
-      <button className="registerLoginButton">
-        <Link className="link" to="/auth/login">
-          Login
-        </Link>
-      </button>
+      <Link className="registerLoginButton link" to="/login">
+        Login
+      </Link>
       {error && (
         <span style={{ color: "red", marginTop: "10px" }}>
           Something went wrong!
