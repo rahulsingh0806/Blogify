@@ -48,7 +48,7 @@ app.use("/api/access",accessRoute);
 app.use("/api/categories", categoryRoute);
 
 app.get('/api/', (req, res)=> {
-  res.get(`<h1> This is the backend of the blogify web app</h1>`);
+  res.send(`<h1> This is the backend of the blogify web app</h1>`);
 })
 app.listen(PORT, () => {
   console.log("Backend is running.");
