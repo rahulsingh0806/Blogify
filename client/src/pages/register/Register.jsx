@@ -145,7 +145,7 @@ export default function Register() {
         otp,
       });
       if (res.data) {
-      navigate("/login");
+      navigate("/auth/login");
     }
     } catch (err) {
       setError(true);
@@ -203,7 +203,7 @@ export default function Register() {
         </button>
       </form>
       <button className="registerLoginButton">
-        <Link className="link" to="/login">
+        <Link className="link" to="/auth/login">
           Login
         </Link>
       </button>
