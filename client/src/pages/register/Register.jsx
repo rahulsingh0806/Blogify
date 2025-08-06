@@ -98,7 +98,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
@@ -109,6 +109,8 @@ export default function Register() {
   const [error, setError] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const baseURL = process.env.REACT_APP_BASE_URL;
+  const navigate = useNavigate();
+
 
   const handleOtp = async (e) => {
     e.preventDefault();
@@ -142,7 +144,9 @@ export default function Register() {
         password,
         otp,
       });
-      res.data && window.location.replace(`${baseURL}/login`);
+      if (res.data) {
+      navigate("/login");
+    }
     } catch (err) {
       setError(true);
     }
@@ -199,7 +203,7 @@ export default function Register() {
         </button>
       </form>
       <button className="registerLoginButton">
-        <Link className="link" to={`${baseURL}/auth/login`}>
+        <Link className="link" to="/login">
           Login
         </Link>
       </button>
